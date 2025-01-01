@@ -12,6 +12,4 @@ public interface CompanyMapper {
     @Mapping(source = "country", target = "country")
     CompanyDto mapToDto(Company company);
 
-    @Mapping(source = "country", target = "country")
-    Company mapToDto(CompanyDto companyDto);
 }
