@@ -9,5 +9,4 @@ public class SdCodeTaskApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SdCodeTaskApplication.class, args);
 	}
-
 }

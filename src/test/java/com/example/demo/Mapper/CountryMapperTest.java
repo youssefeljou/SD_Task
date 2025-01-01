@@ -3,7 +3,6 @@ package com.example.demo.Mapper;
 import com.example.demo.DTOs.CountryDto;
 import com.example.demo.Entities.Country;
 import com.example.demo.Mappers.CountryMapper;
-import com.example.demo.Services.CountryService;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 
 public class CountryMapperTest {
-
-
-    @Autowired
-    private CountryService countryService;
-
 
     @Autowired
     private final CountryMapper countryMapper = Mappers.getMapper(CountryMapper.class);

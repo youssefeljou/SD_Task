@@ -5,15 +5,9 @@ import com.example.demo.DTOs.CountryDto;
 import com.example.demo.Entities.Company;
 import com.example.demo.Entities.Country;
 import com.example.demo.Mappers.CompanyMapper;
-import com.example.demo.Mappers.CountryMapper;
 import com.example.demo.Services.CountryService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mapstruct.factory.Mappers;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,8 +17,7 @@ public class CompanyMapperTest {
     @Autowired
     private CountryService countryService;
 
-    @Autowired
-    private final CountryMapper countryMapper = Mappers.getMapper(CountryMapper.class);
+
     @Autowired
     private final CompanyMapper companyMapper = Mappers.getMapper(CompanyMapper.class);
 
