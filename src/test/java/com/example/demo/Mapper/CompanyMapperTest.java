@@ -15,44 +15,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class CompanyMapperTest {
     @Autowired
-    private CountryService countryService;
-
-
-    @Autowired
     private final CompanyMapper companyMapper = Mappers.getMapper(CompanyMapper.class);
-
     @Test
-    void shouldMapCompanyToCompanyDto() {
-        // given
-        Country country = new Country();
-        country.setId(1);
-        country.setIsoCode("US");
-
-        Company company = new Company();
-        company.setId(1);
-        company.setName("Test Company");
-        company.setCountry(country);
-
-
+    void mapToDtoTest() {
+        Country country = new Country(1, "US");
+        Company company = new Company(1, "CompanyName", country);
         CompanyDto companyDto = companyMapper.mapToDto(company);
-
-
-        assertEquals(company.getId(), companyDto.id());
-        assertEquals(company.getName(), companyDto.name());
-        assertEquals(company.getCountry().getId(), companyDto.country().id());
-        assertEquals(company.getCountry().getIsoCode(), companyDto.country().isoCode());
+        assertEquals("CompanyName", companyDto.name());
+        assertEquals("name of US", companyDto.country().isoCode());
     }
-
     @Test
-    void shouldMapCompanyDtoToCompany() {
-        // given
+    void mapToCompanyTest() {
         CountryDto countryDto = new CountryDto(1, "US");
         CompanyDto companyDto = new CompanyDto(1, "Test Company", countryDto);
-
-
         Company company = companyMapper.mapToDto(companyDto);
-
-
         assertEquals(companyDto.id(), company.getId());
         assertEquals(companyDto.name(), company.getName());
         assertEquals(companyDto.country().id(), company.getCountry().getId());

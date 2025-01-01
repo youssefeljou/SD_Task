@@ -19,30 +19,10 @@ public class CountryMapperTest {
     private final CountryMapper countryMapper = Mappers.getMapper(CountryMapper.class);
 
     @Test
-    void shouldMapCountryToCountryDto() {
-
+    void mapToDtoTest() {
         Country country = new Country(1,"us");
-
-
-
         CountryDto countryDto = countryMapper.mapToDto(country);
-
-
-
         assertEquals(country.getId(), countryDto.id());
-        assertEquals(country.getIsoCode(), countryDto.isoCode());
-    }
-
-    @Test
-    void shouldMapCountryDtoToCountry() {
-
-        CountryDto countryDto = new CountryDto(1, "US");
-
-
-        Country country = countryMapper.mapToDto(countryDto);
-
-
-        assertEquals(countryDto.id(), country.getId());
-        assertEquals(countryDto.isoCode(), country.getIsoCode());
+        assertEquals("name of "+country.getIsoCode(), countryDto.isoCode());
     }
 }

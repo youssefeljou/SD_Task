@@ -9,9 +9,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring",uses = CountryService.class)
 public interface CountryMapper {
 
-    @Mapping(target = "isoCode", expression = "java(country.getIsoCode())")
+
     CountryDto mapToDto(Country country);
 
-    @Mapping(target = "isoCode", expression = "java(countryDto.isoCode())")
-    Country mapToDto(CountryDto countryDto);
 }
