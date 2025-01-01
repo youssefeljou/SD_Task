@@ -9,7 +9,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring",uses = CountryMapper.class)
 public interface CompanyMapper {
 
-    @Mapping(source = "country", target = "country")
     CompanyDto mapToDto(Company company);
 
 }
